@@ -12,8 +12,10 @@ test$Pclass<- as.factor(test$Pclass)
 train$Pclass<-as.factor(train$Pclass)
 train$Name<-as.character(train$Name)
 test$Name<-as.character(test$Name)
-train$Age[is.na(train$Age)]<-median(train$Age,na.rm=T)
-test$Age[is.na(test$Age)]<-median(test$Age,na.rm=T)
+
+# replace NA be the meam of the Age 
+train$Age[is.na(train$Age)]<-mean(train$Age,na.rm=T)
+test$Age[is.na(test$Age)]<-mean(test$Age,na.rm=T)
 
 #plot histogram to see patern in the data
 library(ggplot2)
